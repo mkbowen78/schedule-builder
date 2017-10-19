@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Train Schedule Builder</title>
+  <!-- favicon logo -->
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <!--- latest bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- custome styling -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <!-- firebase link -->
+  <script src="https://www.gstatic.com/firebasejs/4.5.2/firebase.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div id="logo" class="row">
+        <div class="col-md-12">
+          <img src="assets/images/train-logo-01.png" alt="Train Logo" height="100">
+        </div>
+    </div>
+    <!-- add train form row -->
+    <div class="row">
+      <div class="col-md-12">
+        <!-- train schedule form -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>ADD TRAIN</strong></h3>
+          </div>
+
+          <div class="panel-body">
+            <!-- Train Schedule Input from user -->
+            <form role="form">
+              <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+                <label for="name-input">Train Name:</label>
+                <input class="form-control" id="name-input" type="text" placeholder="Orient Express">
+              </div>
+              <div class="form-group col-xs-10 col-sm6 col-md-6 col-lg-6">
+                <label for="destination-input">Destination:</label>
+                <input class="form-control" id="destination-input" type="text" placeholder="Cleveland">
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+                <label for="firstTrain-input">Next Arrival (24HR Format):</label>
+                <input class="form-control" id="firstTrain-input" type="time" placeholder="15:25">
+              </div>
+              <div class="form-group col-xs-10 col-sm-6 col-md-6 col-lg-6">
+                <label for="frequency-input">Frequency (Min):</label>
+                <input class="form-control" id="frequency-input" type="number" placeholder="35">
+              </div>
+              <!-- submit button -->
+              <div class="clearfix col-xs-12">
+                <button class="btn btn-success" id="add-train" type="submit">Add Train</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- row ends -->
+
+    <!-- Well Row for displaying train schedule -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>Current Train Schedule</strong></h3>
+          </div>
+          <div class="panel-body">
+              <table class="table table-hover" id="current-schedule">
+                <thead>
+                  <tr>
+                    <th>Train Name</th>
+                    <th>Destination</th>
+                    <th>Next Arrival</th>
+                    <th>Frequency</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+          </div>
+          <div class="panel-footer">
+            Built by: <a href="https://www.linkedin.com/in/mkbowen78" target="_blank">Bowen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <!-- container ends -->
+
+  <!--- common dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+  <!-- my javascript -->
+  <script src="assets/javascript/script.js"></script>
+
+</body>
+
+</html>

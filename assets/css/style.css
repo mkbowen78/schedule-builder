@@ -1,0 +1,36 @@
+body {
+  padding-top: 25px;
+  /*background: linear-gradient(red, yellow);*/
+  background: url('../images/bokeh-photo.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.panel-default {
+ opacity: 0.8;
+}
+
+#logo {
+  margin-bottom: 25px;
+}
+/*.panel-default {
+ opacity: 0.9;
+ margin-top:30px;
+}*/
+
+p.capitalize {
+    text-transform: capitalize;
+}
+
+@media (min-width: 992px) {
+	body {
+  	padding-top: 45px;
+  }
+	body {
+		padding-top: 35px;
+  }
+}
+  button,
+  form,
+  input {
+  	margin: 5px;
+}
