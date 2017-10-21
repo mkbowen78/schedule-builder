@@ -19,7 +19,7 @@ $("#add-train").on("click", function(event) {
   // getting user inputs
   var trainName = $("#name-input").val().trim();
   var destination = $("#destination-input").val().trim();
-  var firstTrain = $("#firstTrain-input").val().trim();
+  var firstTrain = moment($("#firstTrain-input").val().trim(), "HH:mm").subtract(10,"years").format("x");
   var frequency = $("#frequency-input").val().trim();
 
   // temporary object for new train saved locally
@@ -52,13 +52,18 @@ $("#add-train").on("click", function(event) {
 // "firebase watcher" that runs the childSnapshot function when a child is added
 dataRef.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
-  console.log(childSnapshot.val());
+  // console.log(childSnapshot.val());
 
       // store input as variables on firebase
       var trainName = childSnapshot.val().name;
       var destination = childSnapshot.val().place;
       var firstTrain = childSnapshot.val().first;
       var frequency = childSnapshot.val().howOften;
+
+      // moment.js related variables
+      var remainder = moment().diff(moment.unix(firstTrain),"minutes")%frequency;
+      var minutes = frequency - remainder;
+      var arrival = moment().add(minutes,"m").format("hh.mm A");
 
     // log to console to check if working
       // console.log(trainName);
@@ -67,7 +72,7 @@ dataRef.ref().on("child_added", function(childSnapshot, prevChildKey) {
       // console.log(frequency);
 
       $("#current-schedule").append("<tr><td>" + trainName + "</td><td>" + destination + "</td><td>" +
-        firstTrain + "</td><td>" + frequency + "</td></tr>");
+        frequency + "</td><td>" + arrival + "</td><td>" + minutes + "</td><</tr>");
 
       // dataRef.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
 
